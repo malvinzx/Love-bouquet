@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="id">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, viewport-fit=cover"
+        />
+        <meta name="theme-color" content="#170718" />
+        <meta
+            name="description"
+            content="Sebuah buket bunga digital dan surat kecil yang dibuat dengan sepenuh hati."
+        />
+
+        <title>For My Queen ♡</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+        <link
+            href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Dancing+Script:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+            rel="stylesheet"
+        />
+
+        <link rel="stylesheet" href="style.css" />
+    </head>
+
+    <body>
+        <div class="ambient ambient-one" aria-hidden="true"></div>
+        <div class="ambient ambient-two" aria-hidden="true"></div>
+        <canvas id="fx" aria-hidden="true"></canvas>
+
+        <!-- HEADER -->
+        <header class="top">
+            <div class="brand-mark" aria-label="Made with love">
+                <span class="brand-monogram">
+                    <span></span>
+                </span>
+                <span class="brand-caption"> a little something for you </span>
+            </div>
+
+            <div class="top-actions">
+                <div
+                    class="themes"
+                    id="themes"
+                    role="group"
+                    aria-label="Pilih warna buket"
+                >
+                    <button
+                        data-t="rose"
+                        style="--s: #ff6f9f"
+                        aria-label="Tema Rose"
+                        title="Rose"
+                        type="button"
+                    ></button>
+
+                    <button
+                        data-t="sunset"
+                        style="--s: #ff9c6b"
+                        aria-label="Tema Sunset"
+                        title="Sunset"
+                        type="button"
+                    ></button>
+
+                    <button
+                        data-t="lilac"
+                        style="--s: #b69aff"
+                        aria-label="Tema Lilac"
+                        title="Lilac"
+                        type="button"
+                    ></button>
+                </div>
+
+                <button
+                    class="sound-toggle"
+                    id="soundToggle"
+                    type="button"
+                    aria-pressed="true"
+                    aria-label="Matikan efek suara"
+                >
+                    <span class="sound-icon" aria-hidden="true">♫</span>
+                    <span id="soundLabel">Suara aktif</span>
+                </button>
+
+                <button class="pill" id="skip" type="button">
+                    Lewati animasi
+                    <span aria-hidden="true">↗</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- MAIN -->
+        <main>
+            <div class="hero-note" aria-hidden="true">
+                <span class="note-line"></span>
+                <span>FLOWERS, JUST FOR YOU</span>
+                <span class="note-line"></span>
+            </div>
+
+            <div class="stage-wrap">
+                <div class="stage">
+                    <svg
+                        id="sv"
+                        viewBox="0 0 400 560"
+                        role="img"
+                        aria-label="Buket bunga dan hati yang sedang mekar"
+                    ></svg>
+                </div>
+
+                <div class="stage-glow" aria-hidden="true"></div>
+            </div>
+
+            <p class="cap" id="cap" aria-live="polite"></p>
+
+            <p class="microcopy" id="microcopy">
+                Satu buket kecil, untuk seseorang yang cantik ♡
+            </p>
+
+            <!-- ENVELOPE -->
+            <div
+                class="env"
+                id="env"
+                role="button"
+                tabindex="0"
+                aria-label="Buka amplop surat"
+            >
+                <div class="back"></div>
+                <div class="paper"></div>
+                <div class="front"></div>
+                <div class="flap"></div>
+
+                <div class="seal">
+                    <span>♥</span>
+                </div>
+            </div>
+
+            <!-- CONTROLS -->
+            <div class="ctl" id="ctl">
+                <button class="btn primary" id="bOpen" type="button">
+                    <span>Baca suratnya</span>
+                    <span class="button-arrow" aria-hidden="true">↗</span>
+                </button>
+
+                <button class="btn ghost" id="bAgain" type="button">
+                    Putar lagi ↺
+                </button>
+            </div>
+
+            <div class="signature" aria-hidden="true">
+                made with a little courage & lots of love
+            </div>
+        </main>
+
+        <!-- INTRO SCREEN -->
+        <section class="intro-screen" id="intro" aria-labelledby="introTitle">
+            <div class="intro-stars" aria-hidden="true">
+                <i>✦</i>
+                <i>✧</i>
+                <i>✦</i>
+                <i>✧</i>
+                <i>·</i>
+                <i>✦</i>
+            </div>
+
+            <div class="intro-card">
+                <div class="intro-emblem" aria-hidden="true">
+                    <span>♡</span>
+                    <i>✦</i>
+                </div>
+
+                <p class="eyebrow">A LITTLE SURPRISE, MADE BY HAND</p>
+
+                <h1 id="introTitle">
+                    Untuk
+                    <span id="introRecipient">My Queen</span>
+                    <span class="title-heart">♡</span>
+                </h1>
+
+                <p class="intro-copy" id="introSubtitle">
+                    Ada bunga kecil, beberapa kata dari hati, dan satu hal yang
+                    ingin aku sampaikan.
+                </p>
+
+                <button
+                    class="btn primary start-button"
+                    id="startBtn"
+                    type="button"
+                >
+                    <span>Mulai kejutan</span>
+                    <span class="button-arrow" aria-hidden="true">♡</span>
+                </button>
+
+                <p class="intro-footnote">
+                    <span class="tiny-sparkle">✧</span>
+                    Gunakan suara untuk pengalaman yang lebih manis
+                    <span class="tiny-sparkle">✧</span>
+                </p>
+            </div>
+
+            <p class="intro-bottom">NO PERFECT WORDS. JUST AN HONEST HEART.</p>
+        </section>
+
+        <!-- LETTER -->
+        <section
+            class="letter"
+            id="letter"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="ttl"
+            aria-hidden="true"
+        >
+            <div class="letter-backdrop" aria-hidden="true"></div>
+
+            <article class="card">
+                <div class="letter-topline">
+                    <span class="letter-stamp">♡</span>
+
+                    <span class="letter-label"> A LETTER FROM MY HEART </span>
+
+                    <span class="letter-stamp">✧</span>
+                </div>
+
+                <h2 id="ttl">Untuk My Queen ♡</h2>
+
+                <div class="letter-divider">
+                    <span></span>
+                    <i>✦</i>
+                    <span></span>
+                </div>
+
+                <p class="greeting" id="greeting"></p>
+
+                <div class="txt" id="txt"></div>
+
+                <p class="signoff" id="signoff"></p>
+
+                <div class="letter-endmark" aria-hidden="true">♡</div>
+
+                <!-- LETTER BUTTONS -->
+                <div class="letter-actions">
+                    <button class="btn primary" id="bHug" type="button">
+                        <span>Kirim peluk virtual</span>
+                        <span aria-hidden="true">♡</span>
+                    </button>
+
+                    <button
+                        class="btn ghost close-button"
+                        id="bClose"
+                        type="button"
+                    >
+                        Tutup surat
+                    </button>
+                </div>
+            </article>
+        </section>
+
+        <!-- JAVASCRIPT -->
+        <script src="surat.js"></script>
+        <script src="script.js"></script>
+    </body>
+</html>
